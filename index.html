@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammed Sahil K S — Writer &amp; Future Educator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111113;
+    --paper:#FFFFFF;
+    --backdrop:#E7E6E2;
+    --gray-1:#6E6E72;
+    --gray-2:#9A9A9E;
+    --line:#E4E3DF;
+    --green:#3FBF6B;
+    --display: 'Archivo', sans-serif;
+    --sans: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --radius-lg: 32px;
+    --radius-md: 18px;
+    --radius-pill: 999px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--backdrop);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    padding:24px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  ::selection{background:var(--ink); color:var(--paper);}
+  :focus-visible{ outline:2px solid var(--ink); outline-offset:3px; }
+
+  .frame{
+    max-width:1180px; margin:0 auto;
+    background:var(--paper);
+    border-radius:var(--radius-lg);
+    padding:28px 40px 0;
+    box-shadow:0 1px 2px rgba(17,17,19,0.04);
+  }
+  .wrap{ max-width:1100px; margin:0 auto; }
+
+  /* ---------- NAV ---------- */
+  nav.topnav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:6px 0 28px; flex-wrap:wrap; gap:16px;
+  }
+  .badge{
+    display:flex; align-items:center; gap:8px;
+    border:1px solid var(--line); border-radius:var(--radius-pill);
+    padding:8px 16px 8px 12px; font-size:0.85rem; font-weight:500;
+  }
+  .dot{ width:8px; height:8px; border-radius:50%; background:var(--green); flex-shrink:0; }
+  .nav-links{ display:flex; align-items:center; gap:32px; }
+  .nav-links a{
+    font-size:0.92rem; font-weight:500; color:var(--ink); display:flex; align-items:baseline; gap:4px;
+    border-bottom:1px solid transparent; padding-bottom:2px; transition:border-color 0.2s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{ border-color:var(--ink); }
+  .nav-links a .count{ font-family:var(--mono); font-size:0.72rem; color:var(--gray-2); }
+  .nav-cta{
+    background:var(--ink); color:var(--paper); border-radius:var(--radius-pill);
+    padding:12px 22px; font-size:0.9rem; font-weight:600; display:inline-flex; align-items:center; gap:6px;
+    transition:transform 0.18s ease;
+  }
+  .nav-cta:hover, .nav-cta:focus-visible{ transform:translateY(-2px); }
+  .nav-toggle{ display:none; }
+
+  /* ---------- HERO ---------- */
+  .hero{ position:relative; padding-bottom:0; }
+  .hero-name{
+    font-family:var(--display); font-weight:800; text-transform:uppercase;
+    font-size:clamp(3.2rem, 9vw, 7.4rem); line-height:0.92; letter-spacing:-0.01em;
+    display:flex; flex-wrap:wrap; gap:0 22px;
+  }
+  .hero-name .outline{
+    -webkit-text-stroke: 2px var(--ink); color:transparent;
+  }
+  .hero-name .solid{ color:var(--ink); }
+  .hero-body{
+    display:grid; grid-template-columns:1fr 260px; gap:40px; align-items:end;
+    margin-top:20px; position:relative;
+  }
+  .hero-left{ max-width:400px; padding-bottom:56px; }
+  .role-tag{ font-family:var(--display); font-weight:700; font-size:1.4rem; margin-bottom:10px; }
+  .role-desc{ color:var(--gray-1); font-size:0.98rem; margin-bottom:24px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.9rem; font-weight:600; border-radius:var(--radius-pill);
+    padding:13px 22px; transition:transform 0.18s ease, background 0.18s ease;
+  }
+  .btn-dark{ background:var(--ink); color:var(--paper); }
+  .btn-dark:hover, .btn-dark:focus-visible{ transform:translateY(-2px); }
+  .btn-outline{ border:1px solid var(--ink); color:var(--ink); }
+  .btn-outline:hover, .btn-outline:focus-visible{ background:var(--ink); color:var(--paper); }
+
+  .portrait-col{ position:relative; display:flex; flex-direction:column; align-items:center; }
+  .portrait{
+    width:100%; aspect-ratio:3/3.6;
+    background:linear-gradient(180deg,#D8D7D2 0%, #C7C6C0 100%);
+    border-radius:var(--radius-md) var(--radius-md) 0 0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+  }
+  .portrait svg{ width:46%; opacity:0.55; }
+  .portrait-label{
+    position:absolute; bottom:14px; left:0; right:0; text-align:center;
+    font-family:var(--mono); font-size:0.68rem; color:var(--gray-1); letter-spacing:0.03em;
+  }
+
+  .social-rail{
+    position:absolute; right:-18px; top:0; display:flex; flex-direction:column; gap:10px;
+  }
+  .social-pill{
+    display:flex; align-items:center; gap:8px;
+    border:1px solid var(--line); border-radius:var(--radius-pill);
+    background:var(--paper); padding:9px 16px 9px 12px; font-size:0.82rem; font-weight:500;
+    transition:border-color 0.18s ease, transform 0.18s ease;
+  }
+  .social-pill:hover, .social-pill:focus-visible{ border-color:var(--ink); transform:translateX(-3px); }
+  .social-pill svg{ width:15px; height:15px; flex-shrink:0; }
+
+  .hero-strip{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+    border-top:1px solid var(--line); padding:22px 0; margin-top:12px; font-size:0.85rem; color:var(--gray-1);
+  }
+  .hero-strip .k{ font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--gray-2); margin-right:8px; }
+
+  /* ---------- SECTION SHARED ---------- */
+  section{ padding:70px 0; border-top:1px solid var(--line); }
+  .section-head{ display:flex; align-items:baseline; justify-content:space-between; gap:20px; margin-bottom:40px; flex-wrap:wrap; }
+  .section-head h2{ font-family:var(--display); font-weight:800; font-size:clamp(1.8rem, 3.6vw, 2.6rem); text-transform:uppercase; letter-spacing:-0.01em; }
+  .section-head .tag{
+    font-family:var(--mono); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.06em;
+    border:1px solid var(--ink); border-radius:var(--radius-pill); padding:5px 14px;
+  }
+  .section-intro{ max-width:560px; color:var(--gray-1); margin-bottom:36px; }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.1fr 1fr; gap:60px; }
+  .about-grid p{ margin-bottom:16px; color:#33333a; }
+  .about-grid p.lede{ font-family:var(--display); font-weight:700; font-size:1.5rem; text-transform:none; letter-spacing:0; margin-bottom:20px; }
+  .stat-list{ border-top:1px solid var(--line); }
+  .stat-row{ display:flex; justify-content:space-between; padding:16px 0; border-bottom:1px solid var(--line); gap:16px; }
+  .stat-row .k{ color:var(--gray-1); font-size:0.92rem; }
+  .stat-row .v{ font-family:var(--mono); font-size:0.8rem; text-align:right; }
+
+  /* ---------- JOURNEY ---------- */
+  .journey-list{ border-top:1px solid var(--line); }
+  .journey-row{
+    display:grid; grid-template-columns:60px 1fr 140px; align-items:center; gap:16px;
+    padding:22px 0; border-bottom:1px solid var(--line);
+  }
+  .journey-row .step{ font-family:var(--mono); font-size:0.85rem; color:var(--gray-2); }
+  .journey-row h3{ font-family:var(--display); font-weight:700; font-size:1.1rem; text-transform:none; }
+  .journey-row .status{
+    font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em;
+    border-radius:var(--radius-pill); padding:6px 12px; text-align:center; border:1px solid var(--line);
+  }
+  .journey-row .status.done{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+  .journey-row .status.active{ border-color:var(--green); color:#1c6b3d; }
+
+  /* ---------- SERVICES ---------- */
+  .service-list{ border-top:1px solid var(--ink); }
+  .service-row{
+    display:grid; grid-template-columns:90px 1fr 150px; gap:16px; align-items:center;
+    padding:24px 0; border-bottom:1px solid var(--line);
+  }
+  .service-row .code{ font-family:var(--mono); font-size:0.78rem; color:var(--gray-2); }
+  .service-row h3{ font-family:var(--display); font-weight:700; font-size:1.1rem; margin-bottom:4px; }
+  .service-row p{ font-size:0.9rem; color:var(--gray-1); }
+  .service-row .rate{ font-family:var(--mono); font-size:0.9rem; text-align:right; }
+  .service-note{ padding-top:18px; font-family:var(--mono); font-size:0.72rem; color:var(--gray-2); }
+
+  /* ---------- WORK ---------- */
+  .work-grid{ display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; }
+  .work-card{
+    border:1px solid var(--line); border-radius:var(--radius-md); padding:26px;
+    transition:border-color 0.2s ease, transform 0.2s ease;
+  }
+  .work-card:hover{ border-color:var(--ink); transform:translateY(-3px); }
+  .work-thumb{
+    aspect-ratio:16/9; background:var(--backdrop); border-radius:12px; margin-bottom:18px;
+    display:flex; align-items:center; justify-content:center; color:var(--gray-2);
+    font-family:var(--mono); font-size:0.72rem; text-transform:uppercase; letter-spacing:0.05em;
+  }
+  .work-tag{
+    font-family:var(--mono); font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em;
+    border:1px solid var(--ink); border-radius:var(--radius-pill); padding:3px 10px; display:inline-block; margin-bottom:14px;
+  }
+  .work-card h3{ font-family:var(--display); font-weight:700; font-size:1.1rem; margin-bottom:8px; }
+  .work-card p{ font-size:0.88rem; color:var(--gray-1); margin-bottom:16px; }
+  .work-card a{ font-size:0.82rem; font-weight:600; border-bottom:1px solid var(--ink); padding-bottom:2px; }
+  .placeholder-note{ margin-top:26px; font-family:var(--mono); font-size:0.72rem; color:var(--gray-2); }
+
+  /* ---------- CV BAND ---------- */
+  .cv-band{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px;
+    background:var(--ink); color:var(--paper); padding:42px 40px; border-radius:var(--radius-md);
+  }
+  .cv-band h2{ font-family:var(--display); font-weight:800; font-size:1.6rem; text-transform:uppercase; }
+  .cv-band p{ color:#c9c9cc; margin-top:8px; max-width:400px; font-size:0.92rem; }
+  .btn-light{ background:var(--paper); color:var(--ink); }
+  .btn-light:hover, .btn-light:focus-visible{ transform:translateY(-2px); }
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; }
+  .contact-copy p{ color:var(--gray-1); margin-bottom:20px; max-width:380px; }
+  .contact-links a{
+    display:block; font-family:var(--mono); font-size:0.9rem; padding:12px 0; border-bottom:1px solid var(--line);
+  }
+  form{ display:flex; flex-direction:column; gap:18px; }
+  .field label{ display:block; font-family:var(--mono); font-size:0.7rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--gray-1); margin-bottom:8px; }
+  .field input, .field textarea{
+    width:100%; border:none; border-bottom:1px solid var(--ink); background:transparent;
+    padding:10px 2px; font-family:var(--sans); font-size:0.98rem; color:var(--ink);
+  }
+  .field textarea{ resize:vertical; min-height:100px; }
+  .form-status{ font-family:var(--mono); font-size:0.78rem; color:var(--gray-1); min-height:1.2em; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ padding:32px 0; }
+  .footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; }
+  .footer-inner p{ font-family:var(--mono); font-size:0.72rem; color:var(--gray-2); }
+  .footer-links{ display:flex; gap:20px; }
+  .footer-links a{ font-family:var(--mono); font-size:0.72rem; color:var(--gray-2); }
+  .footer-links a:hover{ color:var(--ink); }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .hero-body{ grid-template-columns:1fr; }
+    .portrait-col{ max-width:280px; margin:0 auto; }
+    .social-rail{ position:static; flex-direction:row; flex-wrap:wrap; justify-content:center; margin-top:20px; }
+    .about-grid, .contact-grid, .work-grid{ grid-template-columns:1fr; }
+    .service-row{ grid-template-columns:1fr; gap:6px; }
+    .service-row .rate{ text-align:left; }
+    .journey-row{ grid-template-columns:40px 1fr; }
+    .journey-row .status{ grid-column:1 / -1; text-align:left; width:fit-content; }
+  }
+  @media (max-width:640px){
+    body{ padding:12px; }
+    .frame{ padding:20px 20px 0; border-radius:20px; }
+    .nav-links{ display:none; }
+    .hero-name{ gap:0 12px; }
+    .cv-band{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="frame">
+  <div class="wrap">
+
+    <nav class="topnav">
+      <div class="badge"><span class="dot"></span> Available for Freelance Work</div>
+      <div class="nav-links">
+        <a href="#work">Work <span class="count">[4]</span></a>
+        <a href="#services">Services <span class="count">[5]</span></a>
+        <a href="#journey">Journey <span class="count">[4]</span></a>
+        <a href="#contact">Contact</a>
+      </div>
+      <a href="#contact" class="nav-cta">Let's Talk ↗</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" style="border-top:none; padding-top:0; padding-bottom:0;">
+      <h1 class="hero-name">
+        <span class="outline">MUHAMMED</span><span class="solid">SAHIL</span><span class="solid">K S</span>
+      </h1>
+
+      <div class="hero-body">
+        <div class="hero-left">
+          <p class="role-tag">Writer &amp; Future Educator</p>
+          <p class="role-desc">
+            B.A. English Language &amp; Literature graduate, currently pursuing a PG and
+            B.Ed to build a career in teaching — writing educational, business &amp;
+            general content along the way.
+          </p>
+          <a href="#contact" class="btn btn-dark">Let's collaborate ↗</a>
+        </div>
+
+        <div class="portrait-col">
+          <div class="portrait">
+            <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="38" r="18" stroke="#77767A" stroke-width="2.5"/>
+              <path d="M18 92c4-22 20-34 32-34s28 12 32 34" stroke="#77767A" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+            <span class="portrait-label">Add your photo here</span>
+          </div>
+
+          <div class="social-rail">
+            <a class="social-pill" href="mailto:kalathilsahil@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+              Email
+            </a>
+            <a class="social-pill" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 11v5M8 8v.01M12 16v-5M12 11c0-1.5 1-2 2.2-2 1.3 0 1.8 1 1.8 2.3V16"/></svg>
+              LinkedIn
+            </a>
+            <a class="social-pill" href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+              Instagram
+            </a>
+            <a class="social-pill" href="#resume" id="cv-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6"/></svg>
+              CV
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-strip">
+        <div><span class="k">Based in</span>Odungakkad, Puthuppadi, Kozhikode</div>
+        <div><span class="k">Focus</span>Educational, Business &amp; General Content</div>
+        <div><span class="k">Currently</span>Pursuing PG + B.Ed</div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-head">
+        <h2>About</h2>
+        <span class="tag">01</span>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p class="lede">Read closely, write clearly, and teach it well next.</p>
+          <p>
+            I'm a B.A. English Language and Literature graduate, and I'm currently
+            heading toward my postgraduate studies and a B.Ed to build a career in
+            teaching. I care about language — how it's read, how it's written, and how
+            it's explained to someone else.
+          </p>
+          <p>
+            Alongside my studies, I write educational, business, and general content,
+            bringing the same attention to clarity and structure I'd bring to a
+            classroom or a close reading of a text.
+          </p>
+        </div>
+        <div class="stat-list">
+          <div class="stat-row"><span class="k">Based in</span><span class="v">Odungakkad, Puthuppadi, Kozhikode</span></div>
+          <div class="stat-row"><span class="k">Currently</span><span class="v">Pursuing PG + B.Ed</span></div>
+          <div class="stat-row"><span class="k">Available for</span><span class="v">Freelance Writing</span></div>
+          <div class="stat-row"><span class="k">Turnaround</span><span class="v">3–7 business days</span></div>
+          <div class="stat-row"><span class="k">Specialties</span><span class="v">Educational · Business · General</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section id="journey">
+      <div class="section-head">
+        <h2>The Path to Teaching</h2>
+        <span class="tag">02</span>
+      </div>
+      <p class="section-intro">A genuine sequence, still in progress — the timeline behind the goal.</p>
+      <div class="journey-list">
+        <div class="journey-row">
+          <span class="step">01</span>
+          <h3>B.A. English Language &amp; Literature</h3>
+          <span class="status done">Completed</span>
+        </div>
+        <div class="journey-row">
+          <span class="step">02</span>
+          <h3>Postgraduate Studies (English)</h3>
+          <span class="status active">In Progress</span>
+        </div>
+        <div class="journey-row">
+          <span class="step">03</span>
+          <h3>B.Ed</h3>
+          <span class="status active">In Progress</span>
+        </div>
+        <div class="journey-row">
+          <span class="step">04</span>
+          <h3>Teaching Career</h3>
+          <span class="status">Goal</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-head">
+        <h2>Services &amp; Rates</h2>
+        <span class="tag">03</span>
+      </div>
+      <p class="section-intro">Straightforward pricing. Final rates depend on scope, research depth, and turnaround.</p>
+      <div class="service-list">
+        <div class="service-row">
+          <span class="code">WRT–01</span>
+          <div>
+            <h3>Educational Content</h3>
+            <p>Lesson notes, study guides, explainers, and learning materials written clearly for the reader.</p>
+          </div>
+          <span class="rate">from $[XX] / piece</span>
+        </div>
+        <div class="service-row">
+          <span class="code">WRT–02</span>
+          <div>
+            <h3>Blog &amp; Article Writing</h3>
+            <p>SEO-aware long-form content, researched and edited for a general audience.</p>
+          </div>
+          <span class="rate">from $[XX] / article</span>
+        </div>
+        <div class="service-row">
+          <span class="code">WRT–03</span>
+          <div>
+            <h3>Business &amp; General Content</h3>
+            <p>Explainers, articles, and web content, written clearly and checked for accuracy.</p>
+          </div>
+          <span class="rate">from $[XX] / piece</span>
+        </div>
+        <div class="service-row">
+          <span class="code">WRT–04</span>
+          <div>
+            <h3>Website &amp; Marketing Copy</h3>
+            <p>Landing pages, product copy, and brand messaging that reads clearly and converts.</p>
+          </div>
+          <span class="rate">from $[XX] / project</span>
+        </div>
+        <div class="service-row" style="border-bottom:none;">
+          <span class="code">EDT–01</span>
+          <div>
+            <h3>Editing &amp; Proofreading</h3>
+            <p>Line edits and fact-checking for existing drafts or documents.</p>
+          </div>
+          <span class="rate">from $[XX] / 1,000 words</span>
+        </div>
+      </div>
+      <p class="service-note">Rates are placeholders — replace with your real pricing before publishing.</p>
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+      <div class="section-head">
+        <h2>Selected Work</h2>
+        <span class="tag">04</span>
+      </div>
+      <p class="section-intro">Placeholder samples — swap these for real pieces once you have them ready.</p>
+      <div class="work-grid">
+        <div class="work-card">
+          <div class="work-thumb">Sample Image</div>
+          <span class="work-tag">Educational</span>
+          <h3>Sample Title One</h3>
+          <p>A one- or two-line summary of what this piece is about and where it was used.</p>
+          <a href="#">Read sample →</a>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb">Sample Image</div>
+          <span class="work-tag">Business</span>
+          <h3>Sample Title Two</h3>
+          <p>A one- or two-line summary of what this piece is about and where it was used.</p>
+          <a href="#">Read sample →</a>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb">Sample Image</div>
+          <span class="work-tag">General</span>
+          <h3>Sample Title Three</h3>
+          <p>A one- or two-line summary of what this piece is about and where it was used.</p>
+          <a href="#">Read sample →</a>
+        </div>
+        <div class="work-card">
+          <div class="work-thumb">Sample Image</div>
+          <span class="work-tag">Editing</span>
+          <h3>Sample Title Four</h3>
+          <p>A one- or two-line summary of what this piece is about and where it was used.</p>
+          <a href="#">Read sample →</a>
+        </div>
+      </div>
+      <p class="placeholder-note">Note: link each "Read sample" to a hosted doc, PDF, or published URL once you have real work to show.</p>
+    </section>
+
+    <!-- CV -->
+    <section id="resume" style="padding-top:0;">
+      <div class="cv-band">
+        <div>
+          <h2>Want the full picture?</h2>
+          <p>Download my CV for a full look at my education, writing work, and teaching-track progress.</p>
+        </div>
+        <a href="#" download class="btn btn-light">Download CV (PDF)</a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-head">
+        <h2>Get in Touch</h2>
+        <span class="tag">05</span>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-copy">
+          <p>Have a project in mind? Tell me a bit about it — scope, deadline, and budget if you have one — and I'll reply within a couple of days.</p>
+          <div class="contact-links">
+            <a href="mailto:kalathilsahil@gmail.com">kalathilsahil@gmail.com</a>
+          </div>
+        </div>
+        <form id="contact-form">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-dark" style="align-self:flex-start;">Send message</button>
+          <p class="form-status" id="form-status"></p>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <p>© <span id="year"></span> Muhammed Sahil K S. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#journey">Journey</a>
+          <a href="#services">Services</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Contact form: opens the visitor's email client with a pre-filled message.
+  // This is a static site, so there's no backend — replace this with a service
+  // like Formspree or EmailJS if you want messages delivered without mailto.
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const subject = encodeURIComponent('Project inquiry from ' + name);
+    const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+    window.location.href = 'mailto:kalathilsahil@gmail.com?subject=' + subject + '&body=' + body;
+    status.textContent = 'Opening your email client…';
+  });
+</script>
+
+</body>
+</html>
